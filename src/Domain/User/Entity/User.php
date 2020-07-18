@@ -6,13 +6,6 @@ namespace Domain\User\Entity;
 
 use Cycle\Annotated\Annotation as Cycle;
 
-/**
- * @Cycle\Entity(
- *     table="user_users",
- *     repository="UserRepository",
- *     role="user"
- * )
- */
 final class User
 {
     private const STATUS_DRAFT = 'Draft';

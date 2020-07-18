@@ -31,8 +31,7 @@ final class HomeAction implements RequestHandlerInterface
         $name = $request->getQueryParams()['name'] ?? 'guest';
 
         return $this->response->html($this->template->render('home', [
-            'name' => $name,
-            'user' => $user
+            'name' => $name
         ]));
     }
 }

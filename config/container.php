@@ -4,15 +4,13 @@ use Furious\Container\Container;
 
 $container = new Container();
 
-$configs = array_map(
-    function ($file) {
-        return require $file;
-    },
-    glob(__DIR__ . '/params/{*}.php', GLOB_BRACE)
-);
+$config = [];
+$configFiles = glob(__DIR__ . '/params/{*}.php', GLOB_BRACE);
+foreach ($configFiles as $configFile) {
+    $config += require $configFile;
+}
 
-$container->set('config', array_merge(...$configs));
-
+$container->set('config', $config);
 array_map(
     function ($file) use ($container) {
         return require $file;

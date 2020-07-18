@@ -13,9 +13,9 @@ final class ProfilerMiddleware implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $start = microtime(true);
+        $start = hrtime(true) / 1000000;
         $response = $handler->handle($request);
-        $stop = microtime(true);
+        $stop = hrtime(true) / 1000000;
 
         return
             $response->withHeader('X-Load-Time', $stop - $start)

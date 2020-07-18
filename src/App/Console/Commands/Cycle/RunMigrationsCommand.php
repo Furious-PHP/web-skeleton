@@ -33,6 +33,8 @@ final class RunMigrationsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $this->migrator->configure();
+
         while ($this->migrator->run() !== null) { }
 
         $output->writeln('<info>Done!</info>');

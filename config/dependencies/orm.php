@@ -15,6 +15,8 @@ use Spiral\Tokenizer;
 
 $container->set(Database\DatabaseManager::class, (new DatabaseManagerFactory())($container));
 
+$container->set(ORM\ORMInterface::class, (new ORMFactory())($container));
+
 $container->set(ORM\ORM::class, (new ORMFactory())($container));
 
 $container->set(Migrations\Config\MigrationConfig::class, (new MigrationConfigFactory)($container));
@@ -23,7 +25,7 @@ $container->set(Migrator::class, (new MigratorFactory())($container));
 
 $container->set(Tokenizer\ClassesInterface::class, function () {
     return (new Tokenizer\Tokenizer(new Tokenizer\Config\TokenizerConfig([
-        'directories' => ['src/Domain/'],
+        'directories' => ['src/Domain/']
     ])))->classLocator();
 });
 
