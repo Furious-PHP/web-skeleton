@@ -1,4 +1,5 @@
-## Furious
+## Furious Web Skeleton
+
 Micro framework for PHP 7.4+
 
-Contain Cycle ORM, Twig and Symfony console component
+[Documentation](https://github.com/Furious-PHP/docs)
